@@ -5,11 +5,9 @@ import seaborn as sns
 import os
 import sys
 
-# Fix encoding for Windows console
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
-# Настройка стиля
 sns.set_style("whitegrid")
 plt.rcParams['figure.figsize'] = (14, 8)
 
@@ -188,13 +186,11 @@ def main():
 
     print("\nГенерация графиков...")
 
-    # Графики для каждого типа данных
     for dtype in df['type'].unique():
         print(f"  - Графики для {dtype}")
         plot_time_comparison(df, dtype)
         plot_comparisons(df, dtype)
 
-    # Сводные графики
     print("  - Сводные графики")
     plot_all_types_time(df)
     plot_algorithm_comparison(df)
